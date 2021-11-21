@@ -14,6 +14,8 @@
 		836743FF2749EDBA0044AB9B /* examen_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836743FE2749EDBA0044AB9B /* examen_iosTests.swift */; };
 		836744092749EDBA0044AB9B /* examen_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836744082749EDBA0044AB9B /* examen_iosUITests.swift */; };
 		8367440B2749EDBA0044AB9B /* examen_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367440A2749EDBA0044AB9B /* examen_iosUITestsLaunchTests.swift */; };
+		8367441A2749EF180044AB9B /* graphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836744192749EF180044AB9B /* graphic.swift */; };
+		8367441D274AFBFC0044AB9B /* TextFieldRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367441C274AFBFC0044AB9B /* TextFieldRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		836744042749EDBA0044AB9B /* examen-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "examen-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		836744082749EDBA0044AB9B /* examen_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = examen_iosUITests.swift; sourceTree = "<group>"; };
 		8367440A2749EDBA0044AB9B /* examen_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = examen_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		836744192749EF180044AB9B /* graphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphic.swift; sourceTree = "<group>"; };
+		8367441C274AFBFC0044AB9B /* TextFieldRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,9 @@
 		836743EC2749EDB80044AB9B /* examen-ios */ = {
 			isa = PBXGroup;
 			children = (
+				836744182749EEF80044AB9B /* Model */,
+				836744172749EEDF0044AB9B /* View */,
 				836743ED2749EDB80044AB9B /* examen_iosApp.swift */,
-				836743EF2749EDB80044AB9B /* ContentView.swift */,
 				836743F12749EDB90044AB9B /* Assets.xcassets */,
 				836743F32749EDB90044AB9B /* Preview Content */,
 			);
@@ -125,6 +130,31 @@
 				8367440A2749EDBA0044AB9B /* examen_iosUITestsLaunchTests.swift */,
 			);
 			path = "examen-iosUITests";
+			sourceTree = "<group>";
+		};
+		836744172749EEDF0044AB9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8367441B274AFB5F0044AB9B /* Components */,
+				836743EF2749EDB80044AB9B /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		836744182749EEF80044AB9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				836744192749EF180044AB9B /* graphic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8367441B274AFB5F0044AB9B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8367441C274AFBFC0044AB9B /* TextFieldRowView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				836743F02749EDB80044AB9B /* ContentView.swift in Sources */,
+				8367441D274AFBFC0044AB9B /* TextFieldRowView.swift in Sources */,
+				8367441A2749EF180044AB9B /* graphic.swift in Sources */,
 				836743EE2749EDB80044AB9B /* examen_iosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
