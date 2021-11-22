@@ -11,11 +11,12 @@ import Combine
 struct TextFieldRowView: View {
     @State var name = ""
     @State var isTextFieldFocused = false
+    
     var body: some View {
         TextField("Nombre", text: $name, onEditingChanged: { isEditing in
                 isTextFieldFocused = isEditing
         })
-            .foregroundColor(isTextFieldFocused ? Color.black : Color.gray)
+            .foregroundColor(isTextFieldFocused ? Color("invertColor") : Color.gray)
             .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
             .cornerRadius(5)
             .overlay(RoundedRectangle(cornerRadius: 5)
@@ -38,9 +39,3 @@ extension String {
     }
 }
 
-struct TextFieldRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        TextFieldRowView()
-            .previewLayout(.fixed(width: 350.0, height: 100))
-    }
-}
