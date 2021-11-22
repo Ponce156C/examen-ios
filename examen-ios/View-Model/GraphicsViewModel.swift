@@ -19,18 +19,6 @@ class GraphicsViewModel: ObservableObject
     }
 
     func fetchGraphics() {
-//        URLSession.shared.dataTask(with: url) { [self] (data, response, error) in
-//            if error == nil {
-//                do {
-//                    let json = try JSONDecoder().decode([graphic].self, from: data!)
-//                    print(json)
-//                    graphics = self.graphics
-//                }
-//                catch {
-//                    print(error)
-//                }
-//            }
-//        }
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: graphic.self, decoder: JSONDecoder())
