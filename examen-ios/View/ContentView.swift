@@ -6,14 +6,28 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
+    @State private var isShowPhotoLibrary = false
+    @State private var userImage: UIImage = UIImage()
+    
     var body: some View {
-        VStack (spacing:5) {
-            TextFieldRowView(name: "")
-            Spacer()
-            
-        }.padding()
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack (spacing:10) {
+                TextFieldRowView(name: "")
+                Button(action: {
+                    self.isShowPhotoLibrary = true
+                }) {
+                    ImageRowView(ImageSelected: self.$userImage)
+                }
+            }.padding()
+                .sheet(isPresented: $isShowPhotoLibrary) {
+                    
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: self.$userImage)
+                }
+        }
+        
     }
 }
 
