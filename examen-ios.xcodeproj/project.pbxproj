@@ -19,6 +19,8 @@
 		8367441F274B19390044AB9B /* ImageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367441E274B19390044AB9B /* ImageRowView.swift */; };
 		83674421274B2AED0044AB9B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83674420274B2AED0044AB9B /* ImagePicker.swift */; };
 		83674424274B3B800044AB9B /* GraphicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83674423274B3B800044AB9B /* GraphicsViewModel.swift */; };
+		83674426274B5B7D0044AB9B /* SourceTypeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83674425274B5B7D0044AB9B /* SourceTypeSelectView.swift */; };
+		83674429274B60F40044AB9B /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 83674428274B60F40044AB9B /* PartialSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,7 @@
 		8367441E274B19390044AB9B /* ImageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRowView.swift; sourceTree = "<group>"; };
 		83674420274B2AED0044AB9B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		83674423274B3B800044AB9B /* GraphicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsViewModel.swift; sourceTree = "<group>"; };
+		83674425274B5B7D0044AB9B /* SourceTypeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTypeSelectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83674429274B60F40044AB9B /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +165,7 @@
 			children = (
 				8367441C274AFBFC0044AB9B /* TextFieldRowView.swift */,
 				8367441E274B19390044AB9B /* ImageRowView.swift */,
+				83674425274B5B7D0044AB9B /* SourceTypeSelectView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -190,6 +195,9 @@
 			dependencies = (
 			);
 			name = "examen-ios";
+			packageProductDependencies = (
+				83674428274B60F40044AB9B /* PartialSheet */,
+			);
 			productName = "examen-ios";
 			productReference = 836743EA2749EDB80044AB9B /* examen-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -262,6 +270,9 @@
 				Base,
 			);
 			mainGroup = 836743E12749EDB80044AB9B;
+			packageReferences = (
+				83674427274B60F40044AB9B /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = 836743EB2749EDB80044AB9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,6 +318,7 @@
 				8367441F274B19390044AB9B /* ImageRowView.swift in Sources */,
 				836743F02749EDB80044AB9B /* ContentView.swift in Sources */,
 				8367441D274AFBFC0044AB9B /* TextFieldRowView.swift in Sources */,
+				83674426274B5B7D0044AB9B /* SourceTypeSelectView.swift in Sources */,
 				83674424274B3B800044AB9B /* GraphicsViewModel.swift in Sources */,
 				83674421274B2AED0044AB9B /* ImagePicker.swift in Sources */,
 				8367441A2749EF180044AB9B /* graphic.swift in Sources */,
@@ -659,6 +671,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		83674427274B60F40044AB9B /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		83674428274B60F40044AB9B /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83674427274B60F40044AB9B /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 836743E22749EDB80044AB9B /* Project object */;
 }

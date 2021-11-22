@@ -7,11 +7,13 @@
 
 import SwiftUI
 import UIKit
+import PartialSheet
 
 struct ImagePicker:UIViewControllerRepresentable {
     
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
+    @EnvironmentObject var partialSheetManager: PartialSheetManager
     @Binding var selectedImage: UIImage
     @Environment(\.presentationMode) private var presentationMode
     
@@ -45,6 +47,7 @@ struct ImagePicker:UIViewControllerRepresentable {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 parent.selectedImage = image
             }
+            parent.partialSheetManager.closePartialSheet()
             parent.presentationMode.wrappedValue.dismiss()
         }
     }
