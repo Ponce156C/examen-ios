@@ -12,8 +12,10 @@ import PartialSheet
 struct ContentView: View {
     @State private var isCamera = false
     @State private var isLibrary = false
+    @State private var isGraphicsPrensent = false
     @State private var userImage: UIImage = UIImage()
     @EnvironmentObject var partialSheetManager : PartialSheetManager
+    var viewModel = GraphicsViewModel()
     
     var body: some View {
         NavigationView {
@@ -27,7 +29,14 @@ struct ContentView: View {
                     }) {
                         ImageRowView(ImageSelected: self.$userImage)
                     }
-                    
+                    NavigationLink(destination: GraphicsView(viewModel: viewModel)) {
+                            Text("Gráficas")
+                                .frame(width: 150, alignment: .center)
+                                .padding(20)
+                                .foregroundColor(.white)
+                                .background(.blue)
+                                .cornerRadius(10)
+                        }
                     Spacer()
                 }
                 .padding(.horizontal)
@@ -36,6 +45,9 @@ struct ContentView: View {
                 })
                 .fullScreenCover(isPresented: $isCamera, content: {
                     ImagePicker(sourceType: .camera, partialSheetManager: _partialSheetManager, selectedImage: self.$userImage)
+                })
+                .fullScreenCover(isPresented: $isGraphicsPrensent, content: {
+                    
                 })
             }
             .navigationBarTitle("Examen - ios")

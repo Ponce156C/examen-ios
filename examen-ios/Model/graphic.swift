@@ -14,14 +14,14 @@ struct graphic: Decodable {
 }
 
 // MARK: - Question
-struct Question: Decodable {
+struct Question: Decodable, Hashable {
     let total: Int
     let text: String
     let chartData: [ChartDatum]
 }
 
 // MARK: - ChartDatum
-struct ChartDatum: Decodable {
+struct ChartDatum: Decodable, Hashable {
     let text: String
     let percetnage: Int
 }
