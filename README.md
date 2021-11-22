@@ -1,8 +1,7 @@
 # examen-ios
 
 ## Preguntas 🧐
-### Explique el ciclo de vida de un ViewController
-### Explique el ciclo de vida de una aplicación
+
 ### En que casos se usa un weak, un strong y un unowned
 - Si se está seguro de que el valor capturado permanecera en todo momento del ciclo de vida del closure, es posible utilizar **unowned**. Esto es solo para cuando weak cause problemas al ser utilizado, incluso si se utiliza guard let dentro del closure con una variable weak capturada._
 - Si se tiene una referencia strong donde *A* posee a *B* y *B* posee a *A*, una de las dos debería ser una referencia **weak**. Esto usualmente sería cualquiera que sea destruida primero, entonces si el viewController *A* presenta al ViewController B, el ViewController B debería de ser una referencia **weak** de A._
