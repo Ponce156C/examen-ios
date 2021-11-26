@@ -170,6 +170,7 @@
 		8367441B274AFB5F0044AB9B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				83A3A31627506C52002D14E7 /* Utilities.swift */,
 				8367441C274AFBFC0044AB9B /* TextFieldRowView.swift */,
 				8367441E274B19390044AB9B /* ImageRowView.swift */,
 				83674425274B5B7D0044AB9B /* SourceTypeSelectView.swift */,
@@ -183,7 +184,6 @@
 			children = (
 				83674420274B2AED0044AB9B /* ImagePicker.swift */,
 				83674423274B3B800044AB9B /* GraphicsViewModel.swift */,
-				83A3A31627506C52002D14E7 /* Utilities.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
