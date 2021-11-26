@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var isCamera = false
     @State private var isLibrary = false
     @State private var isGraphicsPrensent = false
-    @State private var userImage: UIImage = UIImage()
+    
     @EnvironmentObject var partialSheetManager : PartialSheetManager
     var graphicViewModel = GraphicsViewModel()
     @State var userViewModel = UserViewModel()
@@ -30,7 +30,7 @@ struct ContentView: View {
                             SourceTypeSelectView(isLibrary: $isLibrary, isCamera: $isCamera)
                         }
                     }) {
-                        ImageRowView(ImageSelected: self.$userImage)
+                        ImageRowView(userViewModel: self.$userViewModel)
                     }
 //                  MARK: Graphics Row
                     NavigationLink(destination: GraphicsView(viewModel: graphicViewModel)) {
@@ -46,10 +46,10 @@ struct ContentView: View {
                 .padding(.horizontal)
 //               MARK: Present Views
                 .fullScreenCover(isPresented: $isLibrary, content: {
-                    ImagePicker(sourceType: .photoLibrary, partialSheetManager: _partialSheetManager, selectedImage: self.$userImage)
+                    ImagePicker(sourceType: .photoLibrary, partialSheetManager: _partialSheetManager, viewModel: self.$userViewModel)
                 })
                 .fullScreenCover(isPresented: $isCamera, content: {
-                    ImagePicker(sourceType: .camera, partialSheetManager: _partialSheetManager, selectedImage: self.$userImage)
+                    ImagePicker(sourceType: .camera, partialSheetManager: _partialSheetManager, viewModel: self.$userViewModel)
                 })
                 .fullScreenCover(isPresented: $isGraphicsPrensent, content: {})
             }

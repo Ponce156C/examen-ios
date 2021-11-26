@@ -14,7 +14,7 @@ struct ImagePicker:UIViewControllerRepresentable {
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     @EnvironmentObject var partialSheetManager: PartialSheetManager
-    @Binding var selectedImage: UIImage
+    @Binding var viewModel: UserViewModel
     @Environment(\.presentationMode) private var presentationMode
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
@@ -45,7 +45,8 @@ struct ImagePicker:UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
      
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                parent.selectedImage = image
+                parent.viewModel.image = image
+                parent.viewModel.updateImage(image: image)
             }
             parent.partialSheetManager.closePartialSheet()
             parent.presentationMode.wrappedValue.dismiss()

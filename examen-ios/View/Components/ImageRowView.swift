@@ -9,17 +9,13 @@ import SwiftUI
 import Combine
 
 struct ImageRowView: View {
-    @State var updatedImage = false
-    @Binding var ImageSelected: UIImage
+    @Binding var userViewModel: UserViewModel
     
     var body: some View {
-        
-        let img = ImageSelected == UIImage() ? UIImage(systemName: "person.fill") : ImageSelected
-    
         ZStack {
             VStack {
                 ZStack {
-                    Image(uiImage: img ?? UIImage())
+                    Image(uiImage: userViewModel.image)
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle())

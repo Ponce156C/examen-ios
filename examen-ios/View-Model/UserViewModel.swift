@@ -6,16 +6,27 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
+
+enum StorageType {
+    case userDefaults, fileSystem
+}
 
 class UserViewModel: ObservableObject {
     @Published var name: String = ""
+    @State var image: UIImage = UIImage()
     
     init() {
-        self.name = getName()
+        self.name = self.getName()
+        self.getImage { img in
+            self.image = img
+        }
     }
     
-    init(name: String) {
+    init(_ name: String,_ image: UIImage) {
         self.name = name
+        self.image = image
     }
     
     func updateName(_ name: String) {
@@ -28,7 +39,7 @@ class UserViewModel: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "name")
     }
     
-    func getName() -> String {
+    private func getName() -> String {
         if let name = UserDefaults.standard.string(forKey: "name") {
             return name
         }
@@ -36,5 +47,61 @@ class UserViewModel: ObservableObject {
         return ""
     }
     
+    private func filePath() -> URL? {
+        let fileManager = FileManager.default
+        guard let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        return documentURL.appendingPathComponent("userImage.png")
+    }
     
+    private func store(image: UIImage, withStoreType storageType: StorageType) {
+        if let pngRepresentation = image.pngData() {
+            switch storageType {
+            case .userDefaults:
+                UserDefaults.standard.set(pngRepresentation, forKey: "userImage")
+            case .fileSystem:
+                if let filePath = self.filePath() {
+                    do {
+                        try pngRepresentation.write(to: filePath, options: .atomic)
+                    }catch let err {
+                        print("Se produjo un error al guardar: ", err)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func retrieveImage(inStorageType storageType: StorageType) -> UIImage? {
+        switch storageType {
+        case .userDefaults:
+            if let imageData = UserDefaults.standard.object(forKey: "userImage") as? Data,
+               let image = UIImage(data: imageData) {
+                return image
+            }
+        case .fileSystem:
+            if let filePath = self.filePath(),
+               let fileData = FileManager.default.contents(atPath: filePath.path),
+               let image = UIImage(data: fileData) {
+                return image
+            }
+        }
+        return nil
+    }
+    
+    private func getImage(_ completion: @escaping(UIImage) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            if let saveImage = self.retrieveImage(inStorageType: .fileSystem) {
+                DispatchQueue.main.async {
+                    completion(saveImage)
+                }
+            }
+            completion(UIImage(systemName: "person.fill") ?? UIImage())
+        }
+    }
+    
+    func updateImage(image: UIImage) {
+        DispatchQueue.global(qos: .background).async {
+            self.image = image
+            self.store(image: self.image, withStoreType: .fileSystem)
+        }
+    }
 }
