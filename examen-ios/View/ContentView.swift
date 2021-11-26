@@ -15,13 +15,16 @@ struct ContentView: View {
     @State private var isGraphicsPrensent = false
     @State private var userImage: UIImage = UIImage()
     @EnvironmentObject var partialSheetManager : PartialSheetManager
-    var viewModel = GraphicsViewModel()
+    var graphicViewModel = GraphicsViewModel()
+    @State var userViewModel = UserViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack (spacing:10) {
-                    TextFieldRowView(name: "")
+//                  MARK: User Name Row
+                    TextFieldRowView(name: userViewModel.name, viewModel: $userViewModel)
+//                  MARK: User Image Row
                     Button(action: {
                         self.partialSheetManager.showPartialSheet {
                             SourceTypeSelectView(isLibrary: $isLibrary, isCamera: $isCamera)
@@ -29,7 +32,8 @@ struct ContentView: View {
                     }) {
                         ImageRowView(ImageSelected: self.$userImage)
                     }
-                    NavigationLink(destination: GraphicsView(viewModel: viewModel)) {
+//                  MARK: Graphics Row
+                    NavigationLink(destination: GraphicsView(viewModel: graphicViewModel)) {
                             Text("Gráficas")
                                 .frame(width: 150, alignment: .center)
                                 .padding(20)
@@ -40,15 +44,14 @@ struct ContentView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
+//               MARK: Present Views
                 .fullScreenCover(isPresented: $isLibrary, content: {
                     ImagePicker(sourceType: .photoLibrary, partialSheetManager: _partialSheetManager, selectedImage: self.$userImage)
                 })
                 .fullScreenCover(isPresented: $isCamera, content: {
                     ImagePicker(sourceType: .camera, partialSheetManager: _partialSheetManager, selectedImage: self.$userImage)
                 })
-                .fullScreenCover(isPresented: $isGraphicsPrensent, content: {
-                    
-                })
+                .fullScreenCover(isPresented: $isGraphicsPrensent, content: {})
             }
             .navigationBarTitle("Examen - ios")
         }
