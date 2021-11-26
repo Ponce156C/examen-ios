@@ -15,9 +15,9 @@ class GraphicsViewModel: ObservableObject
     @Published var graphics = graphic(colors: [String](), questions: [Question]())
 
     init() {
-        fetchGraphics()
+        self.fetchGraphics()
     }
-
+    
     func fetchGraphics() {
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
@@ -26,5 +26,9 @@ class GraphicsViewModel: ObservableObject
             .eraseToAnyPublisher()
             .receive(on: DispatchQueue.main)
             .assign(to: &$graphics)
+    }
+    
+    func getGraphics() -> graphic {
+        return self.graphics
     }
 }

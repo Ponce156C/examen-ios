@@ -22,6 +22,8 @@
 		83674426274B5B7D0044AB9B /* SourceTypeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83674425274B5B7D0044AB9B /* SourceTypeSelectView.swift */; };
 		83674429274B60F40044AB9B /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 83674428274B60F40044AB9B /* PartialSheet */; };
 		8367442B274B80570044AB9B /* GraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367442A274B80570044AB9B /* GraphicsView.swift */; };
+		83A3A313274C293D002D14E7 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A3A312274C293D002D14E7 /* PieChartView.swift */; };
+		83A3A31727506C53002D14E7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A3A31627506C52002D14E7 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		83674423274B3B800044AB9B /* GraphicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsViewModel.swift; sourceTree = "<group>"; };
 		83674425274B5B7D0044AB9B /* SourceTypeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTypeSelectView.swift; sourceTree = "<group>"; };
 		8367442A274B80570044AB9B /* GraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsView.swift; sourceTree = "<group>"; };
+		83A3A312274C293D002D14E7 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		83A3A31627506C52002D14E7 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 				8367441C274AFBFC0044AB9B /* TextFieldRowView.swift */,
 				8367441E274B19390044AB9B /* ImageRowView.swift */,
 				83674425274B5B7D0044AB9B /* SourceTypeSelectView.swift */,
+				83A3A312274C293D002D14E7 /* PieChartView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			children = (
 				83674420274B2AED0044AB9B /* ImagePicker.swift */,
 				83674423274B3B800044AB9B /* GraphicsViewModel.swift */,
+				83A3A31627506C52002D14E7 /* Utilities.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
@@ -323,7 +329,9 @@
 				8367441D274AFBFC0044AB9B /* TextFieldRowView.swift in Sources */,
 				83674426274B5B7D0044AB9B /* SourceTypeSelectView.swift in Sources */,
 				83674424274B3B800044AB9B /* GraphicsViewModel.swift in Sources */,
+				83A3A31727506C53002D14E7 /* Utilities.swift in Sources */,
 				83674421274B2AED0044AB9B /* ImagePicker.swift in Sources */,
+				83A3A313274C293D002D14E7 /* PieChartView.swift in Sources */,
 				8367441A2749EF180044AB9B /* graphic.swift in Sources */,
 				836743EE2749EDB80044AB9B /* examen_iosApp.swift in Sources */,
 				8367442B274B80570044AB9B /* GraphicsView.swift in Sources */,

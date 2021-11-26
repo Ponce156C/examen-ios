@@ -9,23 +9,22 @@ import SwiftUI
 import Combine
 
 struct ImageRowView: View {
-//    @State var userImage = "person.fill"
     @State var updatedImage = false
     @Binding var ImageSelected: UIImage
     
     var body: some View {
+        
+        let img = ImageSelected == UIImage() ? UIImage(systemName: "person.fill") : ImageSelected
+    
         ZStack {
-//            ImageRowView(userImage: userImage!)
             VStack {
                 ZStack {
-                    Image(uiImage: self.ImageSelected)
+                    Image(uiImage: img ?? UIImage())
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 250, height: 250, alignment: .center)
-                        .cornerRadius(125)
-                    Circle()
-                        .stroke(Color("invertColor"), lineWidth: 2)
-                        .frame(width: 250, height: 250)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color("invertColor"), lineWidth:1))
+                        .frame(width: 200, height: 200, alignment: .center)
                 }
             }
             VStack{
@@ -33,7 +32,7 @@ struct ImageRowView: View {
                 Image(systemName: "camera.fill")
                     .resizable()
                     .foregroundColor(Color.blue)
-                    .frame(width: 35, height: 30, alignment: .bottomTrailing)
+                    .frame(width: 25, height: 20, alignment: .bottomTrailing)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 13)
                     .background(Color("invertColor"))
