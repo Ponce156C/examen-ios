@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		832DBDCB2750D4B200CEBB87 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832DBDCA2750D4B200CEBB87 /* UserViewModel.swift */; };
 		836743EE2749EDB80044AB9B /* examen_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836743ED2749EDB80044AB9B /* examen_iosApp.swift */; };
 		836743F02749EDB80044AB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836743EF2749EDB80044AB9B /* ContentView.swift */; };
 		836743F22749EDB90044AB9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836743F12749EDB90044AB9B /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		832DBDCA2750D4B200CEBB87 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		836743EA2749EDB80044AB9B /* examen-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "examen-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		836743ED2749EDB80044AB9B /* examen_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = examen_iosApp.swift; sourceTree = "<group>"; };
 		836743EF2749EDB80044AB9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				83674420274B2AED0044AB9B /* ImagePicker.swift */,
 				83674423274B3B800044AB9B /* GraphicsViewModel.swift */,
+				832DBDCA2750D4B200CEBB87 /* UserViewModel.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8367441F274B19390044AB9B /* ImageRowView.swift in Sources */,
+				832DBDCB2750D4B200CEBB87 /* UserViewModel.swift in Sources */,
 				836743F02749EDB80044AB9B /* ContentView.swift in Sources */,
 				8367441D274AFBFC0044AB9B /* TextFieldRowView.swift in Sources */,
 				83674426274B5B7D0044AB9B /* SourceTypeSelectView.swift in Sources */,

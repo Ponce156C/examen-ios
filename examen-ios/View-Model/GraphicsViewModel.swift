@@ -8,10 +8,9 @@
 import Foundation
 import SwiftUI
 
-class GraphicsViewModel: ObservableObject
-{
+class GraphicsViewModel: ObservableObject {
     let url:URL! = URL(string: "https://us-central1-bibliotecadecontenido.cloudfunctions.net/helloWorld")
-
+//    @Published var isLoad : Bool = false
     @Published var graphics = graphic(colors: [String](), questions: [Question]())
 
     init() {
@@ -30,5 +29,9 @@ class GraphicsViewModel: ObservableObject
     
     func getGraphics() -> graphic {
         return self.graphics
+    }
+    
+    func cancelDataTask() {
+        URLSession.shared.invalidateAndCancel()
     }
 }
