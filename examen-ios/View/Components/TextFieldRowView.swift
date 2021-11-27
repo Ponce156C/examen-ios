@@ -12,7 +12,7 @@ struct TextFieldRowView: View {
     
     @State var name = ""
     @State var isTextFieldFocused = false
-    @Binding var viewModel: UserViewModel
+    @ObservedObject var viewModel: UserViewModel
     
     var body: some View {
         TextField("Nombre", text: $name, onEditingChanged: { isEditing in

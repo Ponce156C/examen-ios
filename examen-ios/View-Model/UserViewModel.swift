@@ -15,12 +15,14 @@ enum StorageType {
 
 class UserViewModel: ObservableObject {
     @Published var name: String = ""
-    @State var image: UIImage = UIImage()
+    @Published var image: UIImage = UIImage()
     
     init() {
         self.name = self.getName()
         self.getImage { img in
-            self.image = img
+            DispatchQueue.main.async {
+                self.image = img
+            }
         }
     }
     
@@ -100,8 +102,10 @@ class UserViewModel: ObservableObject {
     
     func updateImage(image: UIImage) {
         DispatchQueue.global(qos: .background).async {
-            self.image = image
-            self.store(image: self.image, withStoreType: .fileSystem)
+            DispatchQueue.main.async {
+                self.image = image
+                self.store(image: self.image, withStoreType: .fileSystem)
+            }
         }
     }
 }

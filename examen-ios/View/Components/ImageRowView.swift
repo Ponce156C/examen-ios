@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct ImageRowView: View {
-    @Binding var userViewModel: UserViewModel
+    @ObservedObject var userViewModel: UserViewModel
     
     var body: some View {
         ZStack {

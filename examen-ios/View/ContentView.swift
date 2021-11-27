@@ -16,21 +16,21 @@ struct ContentView: View {
     
     @EnvironmentObject var partialSheetManager : PartialSheetManager
     var graphicViewModel = GraphicsViewModel()
-    @State var userViewModel = UserViewModel()
+    @StateObject var userViewModel = UserViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack (spacing:10) {
 //                  MARK: User Name Row
-                    TextFieldRowView(name: userViewModel.name, viewModel: $userViewModel)
+                    TextFieldRowView(name: userViewModel.name, viewModel: userViewModel)
 //                  MARK: User Image Row
                     Button(action: {
                         self.partialSheetManager.showPartialSheet {
                             SourceTypeSelectView(isLibrary: $isLibrary, isCamera: $isCamera)
                         }
                     }) {
-                        ImageRowView(userViewModel: self.$userViewModel)
+                        ImageRowView(userViewModel: userViewModel)
                     }
 //                  MARK: Graphics Row
                     NavigationLink(destination: GraphicsView(viewModel: graphicViewModel)) {
@@ -46,10 +46,10 @@ struct ContentView: View {
                 .padding(.horizontal)
 //               MARK: Present Views
                 .fullScreenCover(isPresented: $isLibrary, content: {
-                    ImagePicker(sourceType: .photoLibrary, partialSheetManager: _partialSheetManager, viewModel: self.$userViewModel)
+                    ImagePicker(sourceType: .photoLibrary, partialSheetManager: _partialSheetManager, viewModel: self.userViewModel)
                 })
                 .fullScreenCover(isPresented: $isCamera, content: {
-                    ImagePicker(sourceType: .camera, partialSheetManager: _partialSheetManager, viewModel: self.$userViewModel)
+                    ImagePicker(sourceType: .camera, partialSheetManager: _partialSheetManager, viewModel: self.userViewModel)
                 })
                 .fullScreenCover(isPresented: $isGraphicsPrensent, content: {})
             }
